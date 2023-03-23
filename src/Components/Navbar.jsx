@@ -1,6 +1,7 @@
 import React from "react";
 import { SiNike } from "react-icons/si";
 import { GrNotification } from "react-icons/gr";
+import { MdFavoriteBorder } from "react-icons/md";
 
 const Navbar = () => {
   return (
@@ -8,16 +9,16 @@ const Navbar = () => {
       <div className="text-[60px]">
         <SiNike />
       </div>
-      
+
       <div className="flex items-center gap-x-32">
-        <div>
+        <div className="h-full">
           <ul className="flex gap-x-6 items-center font-Helvetica text-md">
-            <li>New & Featuren</li>
-            <li>Men</li>
-            <li>Women</li>
-            <li>Kids</li>
-            <li>Sale</li>
-            <li>SNKRS</li>
+            <li>Actions</li>
+            <li>Adventure</li>
+            <li>Comedy</li>
+            <li>Drama</li>
+            <li>Fantasy</li>
+            <li>Science Fiction</li>
           </ul>
         </div>
 
@@ -25,8 +26,11 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="search"
-            className="w-40 py-1 px-4 rounded-full bg-gray-100"
+            className="w-40 py-2 px-4 rounded-full bg-gray-100 text-md"
           ></input>
+          <div className="text-[24px]">
+            <MdFavoriteBorder />
+          </div>
           <div className="text-[20px]">
             <GrNotification />
           </div>

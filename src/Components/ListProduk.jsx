@@ -8,14 +8,6 @@ const ListProduk = () => {
       <ItemProduk/>
       <ItemProduk/>
       <ItemProduk/>
-      <ItemProduk/>
-      <ItemProduk/>
-      <ItemProduk/>
-      <ItemProduk/>
-      <ItemProduk/>
-      <ItemProduk/>
-      <ItemProduk/>
-      <ItemProduk/>
     </div>
   )
 }

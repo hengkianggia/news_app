@@ -1,12 +1,14 @@
 import React from "react";
-import Navbar from "./Components/Navbar";
-import Produk from "./Components/Produk";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./Components/Pages/Root";
 
 function App() {
+  const router = createBrowserRouter([
+    { path: "/", element: <Root />, children: [] },
+  ]);
   return (
     <>
-      <Navbar/>
-      <Produk/>
+      <RouterProvider router={router} />
     </>
   );
 }
