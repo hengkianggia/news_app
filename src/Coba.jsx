@@ -1,16 +1,19 @@
+import { data } from "autoprefixer";
+import axios from "axios";
 import React from "react";
+import { useQuery } from "react-query";
 
 const Coba = () => {
-  const fetchHandler = async () => {
-    const response = await fetch("http://www.omdbapi.com/?apikey=48196632&");
-    const data = await response.json();
-    console.log(data)
-  };
 
   return (
     <div>
-      <h1>coba</h1>
-      <button className="flex bg-orange-400 p-5" onClick={fetchHandler}>jajall</button>
+      {data?.data.map((popo) => {
+        return <p>{popo.name}</p>;
+      })}
+
+      <button className="flex bg-orange-400 p-5" onClick={fetchHandler}>
+        jajall
+      </button>
     </div>
   );
 };

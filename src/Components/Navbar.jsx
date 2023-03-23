@@ -13,12 +13,12 @@ const Navbar = () => {
       <div className="flex items-center gap-x-32">
         <div className="h-full">
           <ul className="flex gap-x-6 items-center font-Helvetica text-md">
-            <li>Actions</li>
-            <li>Adventure</li>
-            <li>Comedy</li>
-            <li>Drama</li>
-            <li>Fantasy</li>
-            <li>Science Fiction</li>
+            <li>Trending</li>
+            <li>Popular</li>
+            <li>Newest</li>
+            <li>Movie</li>
+            <li>TV Series</li>
+            <li>Top Rating</li>
           </ul>
         </div>
 

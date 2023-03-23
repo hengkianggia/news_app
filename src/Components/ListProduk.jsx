@@ -1,15 +1,41 @@
-import React from 'react'
-import ItemProduk from './ItemProduk'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import ItemProduk from "./ItemProduk";
 
 const ListProduk = () => {
-  return (
-    <div className='w-[80%] flex justify-between flex-wrap gap-y-10'>
-      <ItemProduk/>
-      <ItemProduk/>
-      <ItemProduk/>
-      <ItemProduk/>
-    </div>
-  )
-}
+  const [movie, setMovie] = useState([]);
+  useEffect(() => {
+    async function getGenre() {
+      try {
+        const response = await axios.get(
+          "https://api.themoviedb.org/3/discover/movie?api_key=542160c3792c7bccea78ba58cf55157a"
+        );
+        setMovie(response.data.results);
+        console.log(response.data.results);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getGenre();
+  }, []);
 
-export default ListProduk
+  const listGenre = movie.map((hero) => {
+    return (
+      <ItemProduk
+        img={`https://image.tmdb.org/t/p/w500${hero.poster_path}`}
+        title={hero.original_title}
+        overview={hero.overview}
+        rating={hero.vote_average}
+        realease={hero.release_date}
+      />
+    );
+  });
+
+  return (
+    <div className="w-full flex justify-between flex-wrap gap-y-10">
+      {listGenre}
+    </div>
+  );
+};
+
+export default ListProduk;
