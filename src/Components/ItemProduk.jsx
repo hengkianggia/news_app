@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ItemProduk = ({img,title,overview,rating,realease}) => {
+const ItemProduk = ({img,title,rating,realease}) => {
   return (
     <div className="w-[24%] space-y-3 relative overflow-hidden rounded-xl">
       <div className="w-full h-96">
@@ -9,7 +9,7 @@ const ItemProduk = ({img,title,overview,rating,realease}) => {
           alt=""
           className="w-full h-full object-cover object-center rounded-xl"
         />
-        <div className='w-10 h-10 absolute top-0 right-0 bg-yellow-400 text-black grid place-items-center text-lg font-Helvetica font-semibold'>{rating}</div>
+        <div className='w-10 h-10 absolute top-0 right-0 bg-yellow-400 text-black grid place-items-center text-lg font-Helvetica font-semibold rounded-bl-xl'>{rating}</div>
       </div>
 
       <div className="w-full font-Helvetica">

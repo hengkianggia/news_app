@@ -5,7 +5,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 
 const Navbar = () => {
   return (
-    <nav className="w-full py-1 px-16 flex justify-between items-center">
+    <nav className=" w-full py-4 px-16 flex justify-between items-center">
       <div className="text-[60px]">
         <SiNike />
       </div>

@@ -24,7 +24,6 @@ const ListProduk = () => {
       <ItemProduk
         img={`https://image.tmdb.org/t/p/w500${hero.poster_path}`}
         title={hero.original_title}
-        overview={hero.overview}
         rating={hero.vote_average}
         realease={hero.release_date}
       />

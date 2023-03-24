@@ -1,32 +1,55 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useQuery } from "react-query";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { genreActions } from "../Redux/Genre";
 
 const FilterProduk = () => {
+  const [genre, setGenre] = useState([]);
+  useEffect(() => {
+    const fetchHandler = () => {
+      axios
+        .get(
+          "https://api.themoviedb.org/3/genre/movie/list?api_key=542160c3792c7bccea78ba58cf55157a"
+          // {
+          //   params: {
+          //     with_genres: "28",
+          //   },
+          // }
+        )
+        .then(function (response) {
+          setGenre(response.data.genres);
+          // console.log(genre);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+    fetchHandler();
+  }, []);
+
+  const dispatch = useDispatch();
+
+  const actionHandler = () => {
+    dispatch(genreActions.Action("28"));
+  };
 
   return (
     <div className="w-[20%] flex flex-col">
       <div>
         <ul className="flex flex-col gap-y-3 font-Helvetica text-md">
-          <li>Action</li>
-          <li>Adventure</li>
-          <li>Animation</li>
-          <li>Comedy</li>
-          <li>Crime</li>
-          <li>Documentary</li>
-          <li>Drama</li>
-          <li>Family</li>
-          <li>Fantasy</li>
-          <li>History</li>
-          <li>Horror</li>
-          <li>Music</li>
-          <li>Mystery</li>
-          <li>Romance</li>
-          <li>Science Fiction</li>
-          <li>TV Movie</li>
-          <li>Thriller</li>
-          <li>War</li>
-          <li>Western</li>
+          {genre.map((item) => {
+            return (
+              <li
+                className="cursor-pointer"
+                key={item.id}
+                value={item.id}
+                onClick={actionHandler}
+              >
+                {item.name}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>
